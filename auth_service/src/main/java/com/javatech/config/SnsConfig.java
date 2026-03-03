@@ -11,11 +11,11 @@ public class SnsConfig {
 
     @Bean
     public SnsClient snsClient() {
-        AwsBasicCredentials credentials =
+     /*   AwsBasicCredentials credentials =
                 AwsBasicCredentials.create(
                         "AKIATGE5TLIUASFVRCXL",
                         "r/dQwwf03yCe6qJRrIF2IeBjhRMOVVhWOg+mR1Gq"
-                );
+                );*/
         return SnsClient.builder()
                 .region(Region.US_EAST_1)
                 .credentialsProvider(

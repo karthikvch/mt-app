@@ -13,11 +13,11 @@ public class S3Config {
     @Bean
     public S3Client s3Client() {
 
-        AwsBasicCredentials credentials =
+     /*   AwsBasicCredentials credentials =
                 AwsBasicCredentials.create(
                         "AKIATGE5TLIUASFVRCXL",
                         "r/dQwwf03yCe6qJRrIF2IeBjhRMOVVhWOg+mR1Gq"
-                );
+                );*/
 
         return S3Client.builder()
                 .region(Region.US_EAST_1)

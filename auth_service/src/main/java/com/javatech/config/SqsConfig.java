@@ -11,11 +11,11 @@ public class SqsConfig {
 
     @Bean
     public SqsClient sqsClient() {
-        AwsBasicCredentials credentials =
+      /*  AwsBasicCredentials credentials =
                 AwsBasicCredentials.create(
                         "AKIATGE5TLIUASFVRCXL",
                         "r/dQwwf03yCe6qJRrIF2IeBjhRMOVVhWOg+mR1Gq"
-                );
+                );*/
         return SqsClient.builder()
                 .region(Region.US_EAST_1)
                 .credentialsProvider(

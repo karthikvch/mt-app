@@ -14,11 +14,11 @@ public class S3ReadMain {
 
     public static void main(String[] args) throws IOException {
 
-        AwsBasicCredentials credentials =
+      /*  AwsBasicCredentials credentials =
                 AwsBasicCredentials.create(
                         "AKIATGE5TLIUASFVRCXL",
                         "r/dQwwf03yCe6qJRrIF2IeBjhRMOVVhWOg+mR1Gq"
-                );
+                );*/
 
         S3Client s3Client = S3Client.builder()
                 .region(Region.US_EAST_1)
