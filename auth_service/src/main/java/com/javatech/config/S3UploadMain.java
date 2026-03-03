@@ -17,8 +17,8 @@ public class S3UploadMain {
         // 🔐 Credentials (learning purpose only)
         AwsBasicCredentials credentials =
                 AwsBasicCredentials.create(
-                        "AKIATGE5TLIUASFVRCXL",
-                        "r/dQwwf03yCe6qJRrIF2IeBjhRMOVVhWOg+mR1Gq"
+                        "",
+                        ""
                 );
         // S3 Client
         S3Client s3Client = S3Client.builder()

@@ -27,8 +27,8 @@ public class S3ReadMain {
                 )
                 .build();
 
-        String bucket = "my-first-test-bucket-k1";
-        String key = "uploads/18f2ba52-bd2f-4876-9b7a-8a5439e4df6f-sample.txt";
+        String bucket = "";
+        String key = "";
 
         GetObjectRequest request = GetObjectRequest.builder()
                 .bucket(bucket)
