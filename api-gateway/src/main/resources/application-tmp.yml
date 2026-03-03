@@ -1,0 +1,52 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        # 🔐 Login API (Strict)
+        - id: auth-login
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/login
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 5
+                key-resolver: "#{@ipKeyResolver}"
+
+        # 🔄 Refresh Token
+        - id: auth-refresh
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/refresh
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 2
+                redis-rate-limiter.burstCapacity: 10
+                key-resolver: "#{@userKeyResolver}"
+
+        # 📦 Business APIs
+        - id: business-api
+          uri: lb://product-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+                key-resolver: "#{@userKeyResolver}"
+
+        # 🌐 Public APIs
+        - id: public-api
+          uri: lb://public-service
+          predicates:
+            - Path=/public/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 30
+                redis-rate-limiter.burstCapacity: 60
+                key-resolver: "#{@ipKeyResolver}"
